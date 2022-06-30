@@ -243,7 +243,7 @@ func (r *CloudOperatorReconciler) provisioningAllowed(ctx context.Context, infra
 	}
 
 	// Verify FeatureGate ExternalCloudProvider is enabled for operator to work in TP phase
-	external, err := cloudprovider.IsCloudProviderExternal(infra.Status.PlatformStatus, featureGate)
+	external, err := cloudprovider.IsCloudProviderExternal(infra, featureGate)
 	if err != nil {
 		klog.Errorf("Could not determine external cloud provider state: %v", err)
 
